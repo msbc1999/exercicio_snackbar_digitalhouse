@@ -1,4 +1,4 @@
-package me.mateus.snackbar
+package me.mateus.bugcode
 
 import org.junit.Test
 

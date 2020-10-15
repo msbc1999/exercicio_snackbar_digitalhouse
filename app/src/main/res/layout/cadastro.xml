@@ -24,6 +24,22 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Email"
+        android:textColorHint="@color/colorPrimary"
+        app:hintTextAppearance="@style/CustomTxtFloatingLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,58 +55,31 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtRepetirSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Repetir Senha"
+        android:textColorHint="@color/colorPrimary"
+        app:endIconMode="password_toggle"
+        app:hintTextAppearance="@style/CustomTxtFloatingLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginVertical="20dp"
         android:background="@drawable/background_buttom"
-        android:text="Login"
+        android:text="Cadastrar"
         android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/lblCadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:text="Não tem uma conta? Cadastrar-se"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginVertical="15dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="110dp"
-        android:paddingBottom="0dp">
-
-        <ImageView
-            android:id="@+id/imgFacebook"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_facebook" />
-
-        <ImageView
-            android:id="@+id/imgInstagram"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_instagram" />
-
-        <ImageView
-            android:id="@+id/imgGooglePlus"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_google" />
-    </LinearLayout>
 
 </LinearLayout>
