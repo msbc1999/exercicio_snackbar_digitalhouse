@@ -1,15 +1,13 @@
-package me.mateus.bugcode.core
+package me.mateus.mywallet.core
 
 import android.content.Context
 import android.content.Intent
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_login.*
 import java.io.Serializable
 import java.lang.IllegalArgumentException
 
-class BugCodeCore : Serializable {
+class MyWalletCore : Serializable {
 
     val contas: MutableList<Conta> = mutableListOf() // APENAS PARA TESTES
     var contaAtual: Conta? = null
@@ -56,11 +54,11 @@ class BugCodeCore : Serializable {
 
 
     companion object Static {
-        fun fromIntent(intent: Intent): BugCodeCore {
+        fun fromIntent(intent: Intent): MyWalletCore {
             val b = intent.extras;
             if (b == null) throw IllegalArgumentException("A intent informada não possui extras")
-            if (!b.containsKey("core")) throw IllegalArgumentException("A intent informada não possui uma instancia do BugCodeCore")
-            return b.getSerializable("core") as BugCodeCore
+            if (!b.containsKey("core")) throw IllegalArgumentException("A intent informada não possui uma instancia do MyWalletCore")
+            return b.getSerializable("core") as MyWalletCore
         }
 
         fun showSnackbar(view: View, mensagem: String) {

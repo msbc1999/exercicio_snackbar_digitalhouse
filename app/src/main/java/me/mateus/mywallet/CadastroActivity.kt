@@ -1,4 +1,4 @@
-package me.mateus.bugcode
+package me.mateus.mywallet
 
 import android.app.Activity
 import android.os.Bundle
@@ -6,16 +6,16 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_cadastro.*
 import kotlinx.android.synthetic.main.cadastro.view.*
-import me.mateus.bugcode.core.BugCodeCore
+import me.mateus.mywallet.core.MyWalletCore
 
 class CadastroActivity : AppCompatActivity() {
 
-    private lateinit var core: BugCodeCore
+    private lateinit var core: MyWalletCore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
-        core = BugCodeCore.fromIntent(intent)
+        core = MyWalletCore.fromIntent(intent)
 
 
         setSupportActionBar(toolbar)
@@ -38,21 +38,21 @@ class CadastroActivity : AppCompatActivity() {
         val repetirSenha = layCadastro.txtRepetirSenha.editText?.text.toString()
 
         if (senha != repetirSenha) {
-            BugCodeCore.showSnackbar(
+            MyWalletCore.showSnackbar(
                 layoutCadastroSnack,
                 "Repita a senha corretamente"
             )
             return
         }
         if (core.contemUsuario(usuario)) {
-            BugCodeCore.showSnackbar(
+            MyWalletCore.showSnackbar(
                 layoutCadastroSnack,
                 "Usuário já em uso"
             )
             return
         }
         if (core.contemEmail(email)) {
-            BugCodeCore.showSnackbar(
+            MyWalletCore.showSnackbar(
                 layoutCadastroSnack,
                 "Email já em uso"
             )
@@ -61,14 +61,14 @@ class CadastroActivity : AppCompatActivity() {
         try {
             core.cadastrarConta(usuario, email, senha)
             updateResult()
-            BugCodeCore.showSnackbar(
+            MyWalletCore.showSnackbar(
                 layoutCadastroSnack,
                 "Conta criada com sucesso!"
                 , "Voltar", View.OnClickListener {
                     finish()
                 })
         } catch (ex: Exception) {
-            BugCodeCore.showSnackbar(
+            MyWalletCore.showSnackbar(
                 layoutCadastroSnack,
                 "Erro ao cadastrar a conta!"
             )

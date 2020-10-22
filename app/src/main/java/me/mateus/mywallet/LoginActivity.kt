@@ -1,4 +1,4 @@
-package me.mateus.bugcode
+package me.mateus.mywallet
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.login.view.*
-import me.mateus.bugcode.core.BugCodeCore
+import me.mateus.mywallet.core.MyWalletCore
 
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var core: BugCodeCore
+    private lateinit var core: MyWalletCore
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        core = BugCodeCore.fromIntent(intent)
+        core = MyWalletCore.fromIntent(intent)
 
 
 
@@ -31,13 +31,14 @@ class LoginActivity : AppCompatActivity() {
 
 
         layLogin.imgFacebook.setOnClickListener {
-            BugCodeCore.showSnackbar(layoutLoginSnack, "Realizar login usando Facebook")
+            MyWalletCore.showSnackbar(layoutLoginSnack, "Realizar login usando Facebook")
         }
         layLogin.imgGooglePlus.setOnClickListener {
-            BugCodeCore.showSnackbar(layoutLoginSnack, "Realizar login usando Google+")
+//            MyWalletCore.showSnackbar(layoutLoginSnack, "Realizar login usando Google+")
+            abrirMain()
         }
         layLogin.imgInstagram.setOnClickListener {
-            BugCodeCore.showSnackbar(layoutLoginSnack, "Realizar login usando Instagram")
+            MyWalletCore.showSnackbar(layoutLoginSnack, "Realizar login usando Instagram")
         }
 
         layLogin.btnLogin.setOnClickListener {
@@ -51,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
         val senha = layLogin.txtSenha.editText?.text.toString()
 
         if (!core.contemUsuario(usuario)) {
-            BugCodeCore.showSnackbar(layoutLoginSnack,
+            MyWalletCore.showSnackbar(layoutLoginSnack,
                 "Usuário não existe!",
                 "Cadastrar-se",
                 View.OnClickListener {
@@ -63,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                 core.contaAtual = acc
                 abrirMain()
             } else {
-                BugCodeCore.showSnackbar(layoutLoginSnack, "Senha inválida!")
+                MyWalletCore.showSnackbar(layoutLoginSnack, "Senha inválida!")
             }
         }
     }
@@ -84,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1) {
             if (data == null) return
-            core = BugCodeCore.fromIntent(data)
+            core = MyWalletCore.fromIntent(data)
         }
     }
 

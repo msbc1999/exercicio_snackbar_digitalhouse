@@ -4,15 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.mateus.bugcode.MainActivity">
+    tools:context="me.mateus.mywallet.MainActivity">
 
     <LinearLayout
         android:id="@+id/layPrincipal"
-        android:layout_width="409dp"
-        android:layout_height="657dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                app:tabBackground="@color/colorPrimary"
+                app:tabIndicatorColor="@color/colorAccent"
+                app:tabIndicatorGravity="bottom" />
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
