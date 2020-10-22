@@ -1,4 +1,4 @@
-package me.mateus.bugcode
+package me.mateus.mywallet
 
 import org.junit.Test
 
